@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Search } from "lucide-react";
+import { Search, Bookmark, Bell } from "lucide-react";
 
 interface HeaderProps {
   title: string;
@@ -33,12 +33,12 @@ export function Header({ title, subtitle = "Wealth Products" }: HeaderProps) {
           />
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex items-center">
-            <div className="self-stretch flex items-center gap-[5px] w-10 my-auto rounded-[10px]">
-              <div className="self-stretch flex min-h-10 w-10 my-auto" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+              <Bookmark className="w-5 h-5 text-white" />
             </div>
-            <div className="self-stretch flex items-center gap-[5px] w-10 my-auto rounded-[10px]">
-              <div className="self-stretch flex min-h-10 w-10 my-auto" />
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+              <Bell className="w-5 h-5 text-white" />
             </div>
           </div>
         </div>
