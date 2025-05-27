@@ -276,19 +276,19 @@ export function ProductTable({ products, onPlaceOrder }: ProductTableProps) {
             </div>
           </div>
 
-          {/* Action Header */}
-          <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] w-[158px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch text-xs text-[#828096] whitespace-nowrap leading-[1.2] justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="self-stretch flex-1 shrink basis-[0%] w-full gap-2 h-full px-[12p] py-[8px)]">
-                Action
-              </div>
+          {/* More Actions Header - positioned before Action */}
+          <div className="self-stretch w-[60px] my-auto">
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
+              <div className="flex min-h-11 w-full gap-2 flex-1 px-[12p] py-[8px)]" />
             </div>
           </div>
 
-          {/* Empty Header for More Actions */}
-          <div className="self-stretch flex-1 shrink basis-[0%] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="flex min-h-11 w-full gap-2 flex-1 px-[12p] py-[8px)]" />
+          {/* Action Header - moved to the right */}
+          <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] flex-1 my-auto">
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch text-xs text-[#828096] whitespace-nowrap leading-[1.2] justify-center border-[rgba(227,227,227,1)] border-b">
+              <div className="flex w-full gap-2 flex-1 h-full px-[12p] py-[8px)] justify-end">
+                Action
+              </div>
             </div>
           </div>
         </div>

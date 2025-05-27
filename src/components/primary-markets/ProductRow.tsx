@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface ProductRowProps {
@@ -143,22 +144,8 @@ export function ProductRow({
         </div>
       </div>
 
-      {/* Action Column */}
-      <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] w-[158px] my-auto">
-        <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch text-center justify-center border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-[var(--sds-size-space-200)] flex-1 h-full px-4 py-3.5">
-            <button 
-              className="self-stretch flex-1 shrink basis-[0%] min-w-24 border min-h-8 w-full gap-3 overflow-hidden pr-[var(--Spacing-8,] pl-[}] pt-[4px)] pb-[24px;] rounded-[100px] border-solid border-[#F04E45] max-md:px-5 cursor-pointer"
-              onClick={onPlaceOrder}
-            >
-              Place Order
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* More Actions Column */}
-      <div className="self-stretch flex-1 shrink basis-[0%] my-auto">
+      {/* More Actions Column - positioned before Place Order */}
+      <div className="self-stretch w-[60px] my-auto">
         <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
           <div className="flex w-full gap-[var(--sds-size-space-200)] flex-1 h-full pl-3 pr-4 py-3.5">
             <div className="items-center flex gap-[var(--sds-size-space-100)]">
@@ -173,6 +160,20 @@ export function ProductRow({
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Action Column - Place Order moved to the right */}
+      <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] flex-1 ml-auto my-auto">
+        <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch text-center justify-center border-[rgba(227,227,227,1)] border-b">
+          <div className="flex w-full gap-[var(--sds-size-space-200)] flex-1 h-full px-4 py-3.5 justify-end">
+            <button 
+              className="flex-shrink-0 min-w-24 border min-h-8 gap-3 overflow-hidden px-4 py-1 rounded-[100px] border-solid border-[#F04E45] cursor-pointer"
+              onClick={onPlaceOrder}
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>
