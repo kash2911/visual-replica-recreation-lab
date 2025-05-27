@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Search } from "lucide-react";
 
 interface HeaderProps {
   title: string;
@@ -13,7 +15,7 @@ export function Header({ title, subtitle = "Wealth Products" }: HeaderProps) {
           {title}
         </div>
         <div className="items-center border bg-[#E2EAFF] self-stretch flex min-h-10 gap-5 text-sm text-[#03002F] font-light my-auto rounded-[40px] border-solid border-[#A0C2FF]">
-          <div className="items-center rounded self-stretch flex min-h-7 gap-2 my-auto px-[0p] py-[16px)]">
+          <div className="items-center rounded self-stretch flex min-h-7 gap-2 my-auto px-4 py-[16px]">
             <div className="self-stretch my-auto">
               {subtitle}
             </div>
@@ -22,16 +24,15 @@ export function Header({ title, subtitle = "Wealth Products" }: HeaderProps) {
         </div>
       </div>
       <div className="self-stretch flex min-w-60 items-center gap-5 my-auto max-md:max-w-full">
-        <div className="self-stretch flex min-w-60 gap-3 my-auto">
-          <div className="content-end flex-wrap flex min-w-60 min-h-8 gap-[8px)_var(--Spacing-6,16px;] w-[324px;}]">
-            <div className="flex w-4 shrink h-5 grow" />
-            <div className="text-[#9999AB] text-sm font-normal leading-[1.4]">
-              Search Client / Partner
-            </div>
-            <div className="min-w-60 grow shrink w-[321px] rounded-[10px]">
-              <div className="bg-[rgba(103,103,108,1)] flex shrink-0 h-px rounded-[10px]" />
-            </div>
-          </div>
+        <div className="flex items-center bg-transparent border-b border-gray-400 px-3 py-2 min-w-[300px]">
+          <Search className="w-5 h-5 text-gray-400 mr-3" />
+          <input
+            type="text"
+            placeholder="Search Client / Partner"
+            className="bg-transparent border-none outline-none text-gray-300 placeholder-gray-400 text-sm font-normal flex-1"
+          />
+        </div>
+        <div className="flex items-center gap-3">
           <div className="flex items-center">
             <div className="self-stretch flex items-center gap-[5px] w-10 my-auto rounded-[10px]">
               <div className="self-stretch flex min-h-10 w-10 my-auto" />
