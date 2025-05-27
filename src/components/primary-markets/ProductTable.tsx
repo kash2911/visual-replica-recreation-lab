@@ -19,29 +19,27 @@ function TableHeader({
   sortDirection = 'asc'
 }: TableHeaderProps) {
   return (
-    <div className={`bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b ${className}`}>
-      <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-        <div className="text-[#828096] text-xs font-medium leading-[1.2] self-stretch my-auto">
-          {label}
-        </div>
-        {sortable && (
-          <div 
-            className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-            onClick={onSort}
-          >
-            <div className="h-2.5">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                className={`aspect-[1.75] object-contain w-[7px] ${isSorted && sortDirection === 'asc' ? 'fill-[#6374D4]' : ''}`}
-              />
-              <img
-                src={isSorted && sortDirection === 'desc' ? "https://cdn.builder.io/api/v1/image/assets/TEMP/a46ea7f883618c7fbd5d92f1aa78cc8ee95a9d23?placeholderIfAbsent=true" : "https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"}
-                className={`aspect-[1.75] object-contain w-[7px] ${isSorted && sortDirection === 'desc' ? 'fill-[#6374D4]' : ''}`}
-              />
-            </div>
-          </div>
-        )}
+    <div className={`bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center border-[rgba(227,227,227,1)] border-b px-3 py-3 ${className}`}>
+      <div className="text-[#828096] text-xs font-medium leading-[1.2] flex-1">
+        {label}
       </div>
+      {sortable && (
+        <div 
+          className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+          onClick={onSort}
+        >
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+            className={`w-[7px] h-1 ${isSorted && sortDirection === 'asc' ? 'opacity-100' : 'opacity-50'}`}
+            alt="Sort ascending"
+          />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+            className={`w-[7px] h-1 ${isSorted && sortDirection === 'desc' ? 'opacity-100' : 'opacity-50'}`}
+            alt="Sort descending"
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -103,23 +101,19 @@ export function ProductTable({ products, onPlaceOrder }: ProductTableProps) {
         <div className="flex w-full items-center flex-wrap max-md:max-w-full">
           {/* Checkbox Header */}
           <div className="self-stretch w-12 my-auto max-md:hidden">
-            <div className="bg-[rgba(245,246,246,1)] min-h-11 w-full max-w-12 overflow-hidden border-[rgba(227,227,227,1)] border-b">
-              <div className="justify-center items-center flex w-full gap-2.5 flex-1 h-full pr-[var(--sds-size-space-300;] pl-[var(--sds-size-space-300;] pt-[24px)] pb-[}]">
-                <div className="self-stretch flex w-full flex-col justify-center flex-1 shrink basis-[0%] my-auto p-0.5">
-                  <input 
-                    type="checkbox" 
-                    className="rounded bg-white border flex w-5 shrink-0 h-5 border-[rgba(209,209,247,1)] border-solid"
-                    checked={selectedProducts.length === products.length && products.length > 0}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedProducts(products.map(p => p.id));
-                      } else {
-                        setSelectedProducts([]);
-                      }
-                    }}
-                  />
-                </div>
-              </div>
+            <div className="bg-[rgba(245,246,246,1)] min-h-11 w-full flex items-center justify-center border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <input 
+                type="checkbox" 
+                className="rounded bg-white border w-5 h-5 border-[rgba(209,209,247,1)] border-solid"
+                checked={selectedProducts.length === products.length && products.length > 0}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedProducts(products.map(p => p.id));
+                  } else {
+                    setSelectedProducts([]);
+                  }
+                }}
+              />
             </div>
           </div>
 
@@ -145,148 +139,138 @@ export function ProductTable({ products, onPlaceOrder }: ProductTableProps) {
 
           {/* Dates Header */}
           <div className="self-stretch w-[132px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center px-2.5 border-[rgba(227,227,227,1)] border-b">
-              <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-                <div className="text-[#828096] text-xs font-medium leading-[14px] self-stretch my-auto">
-                  Open date - <br />
-                  Close date
-                </div>
-                <div 
-                  className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-                  onClick={() => handleSort('dates')}
-                >
-                  <div className="h-2.5">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                      className="aspect-[1.75] object-contain w-[7px]"
-                    />
-                    <img
-                      src={sortField === 'dates' && sortDirection === 'desc' ? "https://cdn.builder.io/api/v1/image/assets/TEMP/a46ea7f883618c7fbd5d92f1aa78cc8ee95a9d23?placeholderIfAbsent=true" : "https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"}
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'dates' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                  </div>
-                </div>
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <div className="text-[#828096] text-xs font-medium leading-[14px] flex-1">
+                Open date - <br />
+                Close date
+              </div>
+              <div 
+                className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+                onClick={() => handleSort('dates')}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort ascending"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort descending"
+                />
               </div>
             </div>
           </div>
 
           {/* Coupon Rate Header */}
           <div className="self-stretch w-[89px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-                <div className="text-[#828096] text-right text-xs font-medium leading-[14px] self-stretch my-auto">
-                  Coupon <br />
-                  Rate (%)
-                </div>
-                <div 
-                  className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-                  onClick={() => handleSort('couponRate')}
-                >
-                  <div className="h-2.5">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'couponRate' && sortDirection === 'asc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'couponRate' && sortDirection === 'desc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                  </div>
-                </div>
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <div className="text-[#828096] text-right text-xs font-medium leading-[14px] flex-1">
+                Coupon <br />
+                Rate (%)
+              </div>
+              <div 
+                className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+                onClick={() => handleSort('couponRate')}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort ascending"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort descending"
+                />
               </div>
             </div>
           </div>
 
           {/* Min Investment Header */}
           <div className="self-stretch w-[102px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-                <div className="text-[#828096] text-right text-xs font-medium leading-[1.2] self-stretch my-auto">
-                  Min. Inv (₹)
-                </div>
-                <div 
-                  className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-                  onClick={() => handleSort('minInvestment')}
-                >
-                  <div className="h-2.5">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'minInvestment' && sortDirection === 'asc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'minInvestment' && sortDirection === 'desc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                  </div>
-                </div>
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <div className="text-[#828096] text-right text-xs font-medium leading-[1.2] flex-1">
+                Min. Inv (₹)
+              </div>
+              <div 
+                className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+                onClick={() => handleSort('minInvestment')}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort ascending"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort descending"
+                />
               </div>
             </div>
           </div>
 
           {/* Estimated Yield Header */}
           <div className="self-stretch w-[89px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-                <div className="text-[#828096] text-right text-xs font-medium leading-[14px] self-stretch my-auto">
-                  Est. <br />
-                  Yield (%)
-                </div>
-                <div 
-                  className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-                  onClick={() => handleSort('estimatedYield')}
-                >
-                  <div className="h-2.5">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'estimatedYield' && sortDirection === 'asc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'estimatedYield' && sortDirection === 'desc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                  </div>
-                </div>
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <div className="text-[#828096] text-right text-xs font-medium leading-[14px] flex-1">
+                Est. <br />
+                Yield (%)
+              </div>
+              <div 
+                className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+                onClick={() => handleSort('estimatedYield')}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort ascending"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort descending"
+                />
               </div>
             </div>
           </div>
 
           {/* Payout Frequency Header */}
           <div className="self-stretch w-[106px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="items-center flex w-full gap-1 flex-1 h-full px-[12p] py-[12px)]">
-                <div className="text-[#828096] text-xs font-medium leading-[1.2] self-stretch my-auto">
-                  Payout Freq
-                </div>
-                <div 
-                  className="justify-center items-center self-stretch flex min-h-5 flex-col w-5 gap-3 my-auto p-3 cursor-pointer"
-                  onClick={() => handleSort('payoutFrequency')}
-                >
-                  <div className="h-2.5">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'payoutFrequency' && sortDirection === 'asc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
-                      className={`aspect-[1.75] object-contain w-[7px] ${sortField === 'payoutFrequency' && sortDirection === 'desc' ? 'fill-[#6374D4]' : ''}`}
-                    />
-                  </div>
-                </div>
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              <div className="text-[#828096] text-xs font-medium leading-[1.2] flex-1">
+                Payout Freq
+              </div>
+              <div 
+                className="flex flex-col items-center justify-center w-5 h-5 cursor-pointer ml-1"
+                onClick={() => handleSort('payoutFrequency')}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/541301c42c0492776851e44b59e5cc8c450f203f?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort ascending"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce4e5f8280376f6846e8ba5a8f8eb3cfd512d0df?placeholderIfAbsent=true"
+                  className="w-[7px] h-1"
+                  alt="Sort descending"
+                />
               </div>
             </div>
           </div>
 
           {/* More Actions Header - positioned before Action */}
           <div className="self-stretch w-[60px] my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="flex min-h-11 w-full gap-2 flex-1 px-[12p] py-[8px)]" />
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center justify-center border-[rgba(227,227,227,1)] border-b px-3 py-3">
+              {/* Empty header for more actions */}
             </div>
           </div>
 
           {/* Action Header - moved to the right */}
           <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] flex-1 my-auto">
-            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full flex-col items-stretch text-xs text-[#828096] whitespace-nowrap leading-[1.2] justify-center border-[rgba(227,227,227,1)] border-b">
-              <div className="flex w-full gap-2 flex-1 h-full px-[12p] py-[8px)] justify-end">
+            <div className="bg-[rgba(245,246,246,1)] flex min-h-11 w-full items-center justify-end border-[rgba(227,227,227,1)] border-b px-4 py-3">
+              <div className="text-[#828096] text-xs font-medium leading-[1.2]">
                 Action
               </div>
             </div>

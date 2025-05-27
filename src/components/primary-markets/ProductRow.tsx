@@ -45,34 +45,30 @@ export function ProductRow({
     <div className="flex w-full items-center flex-wrap max-md:max-w-full">
       {/* Checkbox Column */}
       <div className="self-stretch w-12 my-auto max-md:hidden">
-        <div className="bg-white flex min-h-[72px] w-full max-w-12 flex-col overflow-hidden items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-          <div className="justify-center items-center flex w-full gap-2.5 flex-1 h-full pr-[var(--sds-size-space-300;] pl-[var(--sds-size-space-300;] pt-[24px)] pb-[}]">
-            <div className="self-stretch flex w-full flex-col justify-center flex-1 shrink basis-[0%] my-auto p-0.5">
-              <input 
-                type="checkbox" 
-                className="rounded bg-white border flex w-5 shrink-0 h-5 border-[rgba(209,209,247,1)] border-solid"
-                checked={isSelected}
-                onChange={handleCheckboxChange}
-              />
-            </div>
+        <div className="bg-white flex min-h-[72px] w-full flex-col justify-center border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="flex justify-center items-center">
+            <input 
+              type="checkbox" 
+              className="rounded bg-white border w-5 h-5 border-[rgba(209,209,247,1)] border-solid"
+              checked={isSelected}
+              onChange={handleCheckboxChange}
+            />
           </div>
         </div>
       </div>
 
       {/* Company Column */}
       <div className="self-stretch min-w-60 w-[280px] my-auto">
-        <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-2 flex-1 h-full px-4 py-3.5">
-            <div className={`min-h-10 text-lg font-medium whitespace-nowrap w-10 h-10 px-2.5 rounded-xl ${company.iconBg} ${company.iconColor}`}>
-              {company.icon}
+        <div className="bg-white flex min-h-[72px] w-full items-center border-[rgba(227,227,227,1)] border-b px-4 py-6">
+          <div className={`min-h-10 text-lg font-medium whitespace-nowrap w-10 h-10 flex items-center justify-center rounded-xl ${company.iconBg} ${company.iconColor}`}>
+            {company.icon}
+          </div>
+          <div className="flex flex-col ml-3 flex-1">
+            <div className="text-[#292663] text-sm font-medium leading-[1.4]">
+              {company.name} - {company.series}
             </div>
-            <div className="flex flex-col items-stretch text-sm leading-[1.4] justify-center flex-1 shrink basis-5">
-              <div className="text-[#292663] self-stretch max-w-full w-48 gap-2.5 font-medium">
-                {company.name} - {company.series}
-              </div>
-              <div className="text-[#4F4D6E] self-stretch max-w-full w-48 gap-2.5 font-light mt-1">
-                {company.additionalSeries} More Series
-              </div>
+            <div className="text-[#4F4D6E] text-sm font-light leading-[1.4] mt-1">
+              {company.additionalSeries} More Series
             </div>
           </div>
         </div>
@@ -80,101 +76,81 @@ export function ProductRow({
 
       {/* Rating Column */}
       <div className="self-stretch w-[148px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#696682] font-normal leading-[1.4] border-[rgba(227,227,227,1)] border-b">
-          <div className="items-stretch flex w-full flex-col justify-center flex-1 px-[12p] py-[14px)]">
-            <div className="text-[#696682] self-stretch w-full gap-2.5">
-              {rating}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#696682] text-sm font-normal leading-[1.4] w-full">
+            {rating}
           </div>
         </div>
       </div>
 
       {/* Dates Column */}
       <div className="self-stretch w-[132px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#696682] font-normal leading-5 px-2.5 border-[rgba(227,227,227,1)] border-b">
-          <div className="items-stretch flex w-full flex-col justify-center flex-1 px-[16p] py-[14px)]">
-            <div className="text-[#696682] self-stretch flex-1 shrink basis-[0%] w-full gap-2.5">
-              {dates}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#696682] text-sm font-normal leading-[1.4] w-full">
+            {dates}
           </div>
         </div>
       </div>
 
       {/* Coupon Rate Column */}
       <div className="self-stretch w-[89px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#828096] font-normal whitespace-nowrap text-right leading-[1.2] border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-2 flex-1 h-full px-[16p] py-[14px)]">
-            <div className="text-[#828096] self-stretch min-h-5 w-full gap-2.5 flex-1 shrink basis-[0%]">
-              {couponRate}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#828096] text-sm font-normal text-right leading-[1.2]">
+            {couponRate}
           </div>
         </div>
       </div>
 
       {/* Min Investment Column */}
       <div className="self-stretch w-[102px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#828096] font-medium whitespace-nowrap text-right leading-[1.2] border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-2 flex-1 h-full px-[16p] py-[14px)]">
-            <div className="text-[#828096] self-stretch w-full min-h-5 gap-2.5 flex-1 shrink basis-[0%]">
-              {minInvestment}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#828096] text-sm font-medium text-right leading-[1.2]">
+            {minInvestment}
           </div>
         </div>
       </div>
 
       {/* Estimated Yield Column */}
       <div className="self-stretch w-[89px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#828096] font-normal whitespace-nowrap text-right leading-[1.2] border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-2 flex-1 h-full px-[16p] py-[14px)]">
-            <div className="text-[#828096] self-stretch min-h-5 w-full gap-2.5 flex-1 shrink basis-[0%]">
-              {estimatedYield}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center justify-end border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#828096] text-sm font-normal text-right leading-[1.2]">
+            {estimatedYield}
           </div>
         </div>
       </div>
 
       {/* Payout Frequency Column */}
       <div className="self-stretch w-[106px] my-auto">
-        <div className="bg-white min-h-[72px] w-full text-sm text-[#696682] font-normal whitespace-nowrap leading-[1.4] border-[rgba(227,227,227,1)] border-b">
-          <div className="items-stretch flex w-full flex-col justify-center flex-1 px-[16p] py-[14px)]">
-            <div className="text-[#696682] self-stretch flex-1 shrink basis-[0%] w-full gap-2.5">
-              {payoutFrequency}
-            </div>
+        <div className="bg-white min-h-[72px] w-full flex items-center border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <div className="text-[#696682] text-sm font-normal leading-[1.4] w-full">
+            {payoutFrequency}
           </div>
         </div>
       </div>
 
       {/* More Actions Column - positioned before Place Order */}
       <div className="self-stretch w-[60px] my-auto">
-        <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch justify-center border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-[var(--sds-size-space-200)] flex-1 h-full pl-3 pr-4 py-3.5">
-            <div className="items-center flex gap-[var(--sds-size-space-100)]">
-              <div className="self-stretch flex w-6 shrink-0 h-6 my-auto" />
-              <div className="self-stretch flex w-6 shrink-0 h-6 my-auto" />
-              <div className="self-stretch flex items-center gap-2.5 w-6 my-auto">
-                <button 
-                  className="self-stretch w-6 overflow-hidden my-auto px-0.5 cursor-pointer"
-                  onClick={onMoreActions}
-                >
-                  <div className="flex w-full shrink-0 h-6 rounded-[100px]" />
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="bg-white flex min-h-[72px] w-full items-center justify-center border-[rgba(227,227,227,1)] border-b px-3 py-6">
+          <button 
+            className="w-6 h-6 flex items-center justify-center cursor-pointer"
+            onClick={onMoreActions}
+          >
+            <div className="w-1 h-1 bg-gray-400 rounded-full mx-0.5"></div>
+            <div className="w-1 h-1 bg-gray-400 rounded-full mx-0.5"></div>
+            <div className="w-1 h-1 bg-gray-400 rounded-full mx-0.5"></div>
+          </button>
         </div>
       </div>
 
       {/* Action Column - Place Order moved to the right */}
       <div className="self-stretch text-sm text-[#F04E45] font-medium leading-[1.4] flex-1 ml-auto my-auto">
-        <div className="bg-white flex min-h-[72px] w-full flex-col items-stretch text-center justify-center border-[rgba(227,227,227,1)] border-b">
-          <div className="flex w-full gap-[var(--sds-size-space-200)] flex-1 h-full px-4 py-3.5 justify-end">
-            <button 
-              className="flex-shrink-0 min-w-24 border min-h-8 gap-3 overflow-hidden px-4 py-1 rounded-[100px] border-solid border-[#F04E45] cursor-pointer"
-              onClick={onPlaceOrder}
-            >
-              Place Order
-            </button>
-          </div>
+        <div className="bg-white flex min-h-[72px] w-full items-center justify-end border-[rgba(227,227,227,1)] border-b px-4 py-6">
+          <button 
+            className="min-w-24 border min-h-8 px-4 py-1 rounded-full border-solid border-[#F04E45] cursor-pointer"
+            onClick={onPlaceOrder}
+          >
+            Place Order
+          </button>
         </div>
       </div>
     </div>
