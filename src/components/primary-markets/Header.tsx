@@ -34,11 +34,11 @@ export function Header({ title, subtitle = "Wealth Products" }: HeaderProps) {
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <Bookmark className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 bg-gradient-to-br from-[#4C1D95] via-[#7C3AED] to-[#A855F7] rounded-lg flex items-center justify-center border border-[#6B46C1]">
+              <Bookmark className="w-5 h-5 text-white stroke-2" fill="none" />
             </div>
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <Bell className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 bg-gradient-to-br from-[#4C1D95] via-[#7C3AED] to-[#A855F7] rounded-lg flex items-center justify-center border border-[#6B46C1]">
+              <Bell className="w-5 h-5 text-white stroke-2" fill="none" />
             </div>
           </div>
         </div>
