@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +41,14 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom styling for Primary NCDs tab to make it rounded */
+[data-tab="primary-ncds"] {
+  border-radius: 12px !important;
+}
+
+/* Alternative selector in case the above doesn't work */
+.tab-primary-ncds {
+  border-radius: 12px !important;
+}
+
